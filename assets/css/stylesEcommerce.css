@@ -1,0 +1,162 @@
+/* styles.css */
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el logo y el texto */
+}
+
+.logo-container img {
+    width: 30px; /* Ajusta el tamaño del logo */
+    height: auto;
+}
+
+.logo-text {
+    font-size: 18px; /* Tamaño del nombre */
+    font-weight: bold;
+    color: #0077cc; /* Color del texto */
+}
+
+/* Estilos para el menú de navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative; /* Necesario para los submenús */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #0077cc;
+    color: white;
+}
+
+nav ul li ul {
+    display: none; /* Ocultar submenú por defecto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+nav ul li:hover > ul {
+    display: block; /* Mostrar submenú al hacer hover sobre el ítem padre */
+}
+
+nav ul li ul li {
+    width: 200px; /* Ancho del submenú */
+}
+
+nav ul li ul li a {
+    padding: 10px;
+    color: #333;
+    background-color: #fff;
+}
+
+nav ul li ul li a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para el submenú */
+nav ul li ul li a {
+    color: #333;
+    font-weight: normal;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li ul li a:hover {
+    background-color: #0077cc;
+    color: white;
+}
+
+
+.icons {
+    font-size: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    color: #222;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Añadido para alineación vertical perfecta */
+    margin-top: 20px;
+}
+
+.search-bar input {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Añadido un borde sutil */
+    border-right: none; /* Elimina el borde derecho para que no choque con el botón */
+    border-radius: 20px 0 0 20px; /* Bordes redondeados solo en el lado izquierdo */
+    font-size: 14px;
+    outline: none;
+}
+
+.search-bar button {
+    color: white;
+    border: none;
+    width: 40px;  /* Ancho ligeramente aumentado */
+    height: 40px; /* Altura para coincidir con el input */
+    border-radius: 0 20px 20px 0; /* Bordes redondeados solo en el lado derecho */
+    margin-left: -1px; /* Ajuste mínimo para unir con el input */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Efecto hover suave */
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
