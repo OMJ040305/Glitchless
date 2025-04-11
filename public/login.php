@@ -35,7 +35,7 @@ if (isset($_SESSION['correo'])) {
 
         <!-- Formularios de acceso y registro -->
         <div class="contenedor__login-registro">
-            <form action="php/login_usuarioBD.php" method="post" class="formulario__login">
+            <form action="../includes/login_usuarioBD.php" method="post" class="formulario__login">
                 <h2>Acceso</h2>
                 <input type="text" placeholder="Correo electrónico" name="correo">
                 <input type="password" placeholder="Contraseña" name="contrasena">
@@ -43,7 +43,7 @@ if (isset($_SESSION['correo'])) {
             </form>
 
             <!--Registro-->
-            <form action="php/registro_usuarioBD.php" method="post" class="formulario__registro">
+            <form action="../includes/registro_usuarioBD.php" method="post" class="formulario__registro">
                 <h2>Registro</h2>
                 <input type="text" placeholder="Nombre completo" name="nombre_completo">
                 <input type="text" placeholder="Correo electrónico" name="correo">

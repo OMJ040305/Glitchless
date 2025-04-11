@@ -6,10 +6,10 @@ if (!isset($_SESSION['correo'])) {
     echo '
         <scrript>
             alert("Debes iniciar sesion");
-            window.location = "index.php";
+            window.location = "login.php";
         </scrript>
     ';
-    header('Location: index.php');
+    header('Location: login.php');
     session_destroy();
     die();
 }
@@ -61,7 +61,7 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </section>
 
-    <a HREF="php/cerrar_sesion.php">Cerrar sesion</a>
+    <a HREF="../includes/cerrar_sesion.php">Cerrar sesion</a>
 
 </main>
 </body>

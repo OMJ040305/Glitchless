@@ -20,7 +20,7 @@ if (mysqli_num_rows($validar_login) > 0) {
 } else {
     echo '<script>
             alert("usuario no existe, porfavor intente de nuevo");
-            window.location = "../index.php";
+            window.location = "../public/index.php";
           </script>';
     exit();
 }
