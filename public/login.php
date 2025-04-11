@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['correo'])) {
-    header('Location: ecommerce.php');
+    header('Location: index.php');
 }
 
 ?>
@@ -13,7 +13,7 @@ if (isset($_SESSION['correo'])) {
 <head>
     <meta charset="UTF-8">
     <title>Acceso a la plataforma</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/styleLogin.css">
 
 </head>
 <body>
@@ -55,7 +55,7 @@ if (isset($_SESSION['correo'])) {
     </div>
 </main>
 
-<script src="assets/js/script.js"></script>
+<script src="assets/js/scriptLogin.js"></script>
 
 </body>
 </html>

@@ -15,12 +15,12 @@ $validar_login = mysqli_query($conexion,
 
 if (mysqli_num_rows($validar_login) > 0) {
     $_SESSION['correo'] = $correo;
-    header("location:../ecommerce.php");
+    header("location:../index.php");
     exit();
 } else {
     echo '<script>
             alert("usuario no existe, porfavor intente de nuevo");
-            window.location = "../public/index.php";
+            window.location = "../public/login.php";
           </script>';
     exit();
 }
