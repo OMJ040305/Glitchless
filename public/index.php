@@ -18,7 +18,6 @@
         <nav class="navbar">
             <ul>
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
                 <li><a href="#">Productos</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
@@ -93,66 +92,34 @@
     <div class="products-content">
 
         <div class="product">
-            <img src="assets/images/prod1.jpg" alt="Producto 1">
+            <img src="assets/images/Eyepetizer.png" alt="Producto 1">
             <div class="product-txt">
-                <h3>Marca</h3>
-                <p>Descripción breve del producto</p>
+                <h3>Eyepetizer</h3>
+                <p>Lentes De Sol Oxford-Dorado-FARFETCH CO</p>
                 <p class="precio">$999.00</p>
                 <a href="#" class="agregar-carrito btn-2" data-id="1">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="product">
-            <img src="assets/images/prod1.jpg" alt="Producto 2">
+            <img src="assets/images/Marina.png" alt="Producto 2">
             <div class="product-txt">
-                <h3>Marca</h3>
-                <p>Descripción breve del producto</p>
+                <h3>Marina Eyewear</h3>
+                <p>Lente con protección blue cut Marina Eyewear PG2043C3 Rosa transparente</p>
                 <p class="precio">$999.00</p>
                 <a href="#" class="agregar-carrito btn-2" data-id="2">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="product">
-            <img src="assets/images/prod1.jpg" alt="Producto 2">
+            <img src="assets/images/Cartier.png" alt="Producto 2">
             <div class="product-txt">
-                <h3>Marca</h3>
-                <p>Descripción breve del producto</p>
+                <h3>Cartier</h3>
+                <p>Lentes Cartier De Gota</p>
                 <p class="precio">$999.00</p>
                 <a href="#" class="agregar-carrito btn-2" data-id="3">Agregar al carrito</a>
             </div>
         </div>
-
-        <div class="product">
-            <img src="assets/images/prod1.jpg" alt="Producto 2">
-            <div class="product-txt">
-                <h3>Marca</h3>
-                <p>Descripción breve del producto</p>
-                <p class="precio">$999.00</p>
-                <a href="#" class="agregar-carrito btn-2" data-id="4">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="assets/images/prod1.jpg" alt="Producto 2">
-            <div class="product-txt">
-                <h3>Marca</h3>
-                <p>Descripción breve del producto</p>
-                <p class="precio">$999.00</p>
-                <a href="#" class="agregar-carrito btn-2" data-id="5">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="assets/images/prod1.jpg" alt="Producto 2">
-            <div class="product-txt">
-                <h3>Marca</h3>
-                <p>Descripción breve del producto</p>
-                <p class="precio">$999.00</p>
-                <a href="#" class="agregar-carrito btn-2" data-id="6">Agregar al carrito</a>
-            </div>
-        </div>
-
-    </div>
 </main>
 
 <section class="icons container">
@@ -187,21 +154,22 @@
 
 <section class="blog container">
     <div class="blog-1">
-        <img src="assets/images/blog1.jpg" alt="Artículo del blog 1">
-        <h3>Consejos para elegir lentes</h3>
-        <p>Descubre cómo escoger el modelo ideal para tu rostro.</p>
+        <img src="assets/images/blog1.png" alt="Artículo del blog 1">
+        <h3>¿Cómo elegir los lentes perfectos?</h3>
+        <p>Te compartimos tips prácticos para encontrar el estilo que realce tus facciones y personalidad.</p>
     </div>
     <div class="blog-1">
-        <img src="assets/images/blog2.jpg" alt="Artículo del blog 2">
-        <h3>Protección visual</h3>
-        <p>Importancia de proteger tus ojos de pantallas.</p>
+        <img src="assets/images/blog2.png" alt="Artículo del blog 2">
+        <h3>Cuida tu vista en la era digital</h3>
+        <p>Descubre por qué el uso de lentes con filtro azul es clave para proteger tus ojos frente a las pantallas.</p>
     </div>
     <div class="blog-1">
-        <img src="assets/images/blog3.jpg" alt="Artículo del blog 3">
-        <h3>Tendencias en moda óptica</h3>
-        <p>Los modelos que están marcando la diferencia.</p>
+        <img src="assets/images/blog3.png" alt="Artículo del blog 3">
+        <h3>Lo último en moda óptica</h3>
+        <p>Conoce las tendencias que están revolucionando el mundo de los lentes y cómo incorporarlas a tu look.</p>
     </div>
 </section>
+
 
 <footer class="footer">
     <div class="footer-content container">
