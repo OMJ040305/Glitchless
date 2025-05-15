@@ -3,11 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Roboto' ,sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background-color: #111111;
+    background-color: #ECEFF1; /* Gris azulado claro */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -27,18 +27,19 @@ main {
     position: relative;
 }
 
+/* Caja trasera con azul semitransparente */
 .caja__trasera {
     width: 100%;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 128, 255, 0.5);
+    backdrop-filter: blur(8px);
+    background-color: rgba(21, 101, 192, 0.7); /* Azul con transparencia */
 }
 
 .caja__trasera div {
     margin: 100px 40px;
-    color: white;
+    color: #FAFAFA; /* Texto claro */
     transition: all 500ms;
 }
 
@@ -54,19 +55,19 @@ main {
 
 .caja__trasera div button {
     padding: 10px 40px;
-    border: 2px solid white;
+    border: 2px solid #FAFAFA;
     background-color: transparent;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    color: white;
+    color: #FAFAFA;
     outline: none;
     transition: all 300ms;
 }
 
 .caja__trasera button:hover {
-    background-color: white;
-    color: #46A2FD;
+    background-color: #FAFAFA;
+    color: #1565C0; /* Azul principal */
 }
 
 /* Formularios */
@@ -79,23 +80,23 @@ main {
     position: relative;
     top: -185px;
     left: 10px;
-
     transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.175);
 }
 
 .contenedor__login-registro form {
     width: 100%;
     padding: 80px 20px;
-    background-color: white;
+    background-color: #FFFFFF;
     position: absolute;
     border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .contenedor__login-registro form h2 {
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
-    color: #46A2FD;
+    color: #263238; /* Texto gris muy oscuro */
 }
 
 .contenedor__login-registro form input {
@@ -103,9 +104,10 @@ main {
     margin-top: 20px;
     padding: 10px;
     border: none;
-    background: #F2F2F2;
+    background: #CFD8DC; /* Gris claro */
     font-size: 16px;
     outline: none;
+    color: #263238;
 }
 
 .contenedor__login-registro form button {
@@ -113,29 +115,34 @@ main {
     margin-top: 40px;
     border: none;
     font-size: 14px;
-    background: #46A2FD;
+    background: #1565C0; /* Azul principal */
     color: white;
     cursor: pointer;
     outline: none;
+    transition: background-color 300ms ease;
 }
 
-.formulario__login{
+.contenedor__login-registro form button:hover {
+    background-color: #1E88E5; /* Azul más claro al hacer hover */
+}
+
+.formulario__login {
     opacity: 1;
     display: block;
 }
 
-.formulario__registro{
+.formulario__registro {
     display: none;
 }
 
-/* Responsive desing */
+/* Responsive design */
 
 @media screen and (max-width: 850px) {
-    main{
+    main {
         margin-top: 50px;
     }
 
-    .caja__trasera{
+    .caja__trasera {
         max-width: 350px;
         height: 300px;
         flex-direction: column;
@@ -143,11 +150,9 @@ main {
     }
 
     .caja__trasera div {
-        margin: 0px;
+        margin: 0;
         position: absolute;
     }
-
-    /* Formulario */
 
     .contenedor__login-registro {
         top: 10px;
@@ -158,5 +163,4 @@ main {
     .contenedor__login-registro form {
         position: relative;
     }
-
 }

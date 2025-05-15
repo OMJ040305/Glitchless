@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&family=Roboto:wght@100..900&display=swap');
+
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #111;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: #F5F5F5;
+    padding: 20px 0;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    color: #111;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+/* Navbar */
+.menu .navbar ul {
+    display: flex;
+    gap: 20px;
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 10px 15px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.menu .navbar ul li a:hover {
+    color: #555;
+}
+
+/* Perfil Section */
+.perfil {
+    padding: 50px 0 100px;
+}
+
+.perfil-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.perfil-header h2 {
+    color: #111111;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #111111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #333;
+}
+
+/* Perfil Menu */
+.perfil-menu {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #F5F5F5;
+    padding-bottom: 10px;
+}
+
+.tab-button {
+    padding: 12px 20px;
+    background-color: transparent;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-button:hover {
+    color: #111;
+}
+
+.tab-button.active {
+    color: #111;
+    font-weight: 600;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #111;
+}
+
+/* Perfil Content */
+.perfil-content {
+    background-color: #F5F5F5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    font-size: 22px;
+    color: #111111;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.tab-content strong {
+    font-weight: 600;
+}
+
+/* Direcciones */
+.direcciones-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.direccion-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.direccion-card.predeterminada {
+    border: 2px solid #4CAF50;
+}
+
+.direccion-predeterminada {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.direccion-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.direccion-card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.direccion-card i {
+    margin-right: 8px;
+    color: #555;
+}
+
+.direccion-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-edit-direccion,
+.btn-delete-direccion,
+.btn-default-direccion {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit-direccion {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-edit-direccion:hover {
+    background-color: #2980b9;
+}
+
+.btn-delete-direccion {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-delete-direccion:hover {
+    background-color: #c0392b;
+}
+
+.btn-default-direccion {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-default-direccion:hover {
+    background-color: #219653;
+}
+
+.btn-add-direccion {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-add-direccion:hover {
+    background-color: #333;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: modalOpen 0.3s;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #111;
+}
+
+#modal-title {
+    margin-bottom: 25px;
+    color: #111;
+    font-size: 24px;
+    font-weight: 700;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+input[type="text"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    border-color: #111;
+    outline: none;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+}
+
+.form-actions {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.btn-submit {
+    padding: 12px 24px;
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .perfil-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .perfil-menu {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .tab-button {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+    }
+
+    .tab-button.active::after {
+        bottom: -2px;
+    }
+
+    .direcciones-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .menu {
+        padding: 20px;
+    }
+
+    .menu .navbar {
+        display: none;
+    }
+
+    .perfil {
+        padding: 30px 0 50px;
+    }
+
+    .perfil-content {
+        padding: 20px;
+    }
+
+    .tab-content h3 {
+        font-size: 20px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 10% auto;
+    }
+}
