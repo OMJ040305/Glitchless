@@ -1,7 +1,46 @@
 <?php
 session_start();
-?>
 
+// Incluir el archivo de conexión
+include '../includes/conexionBD.php';
+
+// Función para obtener todos los productos
+function obtenerProductos($conexion)
+{
+    $sql = "SELECT * FROM productos";
+    $result = mysqli_query($conexion, $sql);
+
+    $productos = array();
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $productos[] = $row;
+        }
+    }
+
+    return $productos;
+}
+
+// Función para obtener productos en oferta
+function obtenerOfertas($conexion, $limit = 3)
+{
+    // Puedes personalizar esta consulta según tus necesidades
+    $sql = "SELECT * FROM productos ORDER BY id DESC LIMIT $limit";
+    $result = mysqli_query($conexion, $sql);
+
+    $ofertas = array();
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $ofertas[] = $row;
+        }
+    }
+
+    return $ofertas;
+}
+
+// Obtener los productos y ofertas
+$productos = obtenerProductos($conexion);
+$ofertas = obtenerOfertas($conexion);
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -46,7 +85,7 @@ session_start();
                     <?php endif; ?>
                 </li>
                 <li class="submenu">
-                    <a href="cart.html">
+                    <a href="assets/php/cart.php">
                         <img src="assets/images/car.svg" id="img-carrito" alt="Carrito de compras">
                     </a>
                 </li>
@@ -61,74 +100,33 @@ session_start();
         <div class="header-text">
             <h1>Ofertas Especiales</h1>
             <p>Estrena los mejores lentes del mercado</p>
-            <a href="#productos" class="btn-1">Más información</a>
         </div>
     </div>
 </header>
 
-<section class="ofert container">
-    <div class="ofert-1">
-        <div class="ofert-img">
-            <img src="assets/images/xiaomiBlueLight.png" alt="Xiaomi Blue Light Glasses">
-        </div>
-        <div class="ofert-text">
-            <h3>Xiaomi Blue Light Blocking Glasses</h3>
-            <a href="#" class="btn-2">Más información</a>
-        </div>
-    </div>
-    <div class="ofert-1">
-        <div class="ofert-img">
-            <img src="assets/images/Twiins.png" alt="Gafas oftálmicas Twiins">
-        </div>
-        <div class="ofert-text">
-            <h3>Gafas oftálmicas Twiins BP_TWHK09</h3>
-            <a href="#" class="btn-2">Más información</a>
-        </div>
-    </div>
-    <div class="ofert-1">
-        <div class="ofert-img">
-            <img src="assets/images/IBLU02.avif" alt="IBLU02 MM00">
-        </div>
-        <div class="ofert-text">
-            <h3>Gafas de lectura IBLU02 MM00 Filtro luz azul neutro</h3>
-            <a href="#" class="btn-2">Más información</a>
-        </div>
-    </div>
-</section>
-
 <main class="products container" id="productos">
-    <h2>Productos</h2>
+    <h2>Nuestros Productos</h2>
     <div class="products-content">
-
-        <div class="product">
-            <img src="assets/images/Eyepetizer.png" alt="Producto 1">
-            <div class="product-txt">
-                <h3>Eyepetizer</h3>
-                <p>Lentes De Sol Oxford-Dorado-FARFETCH CO</p>
-                <p class="precio">$999.00</p>
-                <a href="#" class="agregar-carrito btn-2" data-id="1">Agregar al carrito</a>
+        <?php if (!empty($productos)): ?>
+            <?php foreach ($productos as $producto): ?>
+                <div class="product">
+                    <img src="<?php echo !empty($producto['imagen']) ? 'assets/images/' . $producto['imagen'] : 'assets/images/no-image.png'; ?>"
+                         alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                    <div class="product-txt">
+                        <h3><?php echo htmlspecialchars($producto['nombre']); ?></h3>
+                        <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
+                        <span class="precio">$<?php echo number_format($producto['precio'], 2); ?></span>
+                        <a href="#" class="agregar-carrito btn-2" data-id="<?php echo $producto['id']; ?>">
+                            Agregar al carrito
+                        </a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="no-products">
+                <p>No hay productos disponibles en este momento.</p>
             </div>
-        </div>
-
-        <div class="product">
-            <img src="assets/images/Marina.png" alt="Producto 2">
-            <div class="product-txt">
-                <h3>Marina Eyewear</h3>
-                <p>Lente con protección blue cut Marina Eyewear PG2043C3 Rosa transparente</p>
-                <p class="precio">$999.00</p>
-                <a href="#" class="agregar-carrito btn-2" data-id="2">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="assets/images/Cartier.png" alt="Producto 3">
-            <div class="product-txt">
-                <h3>Cartier</h3>
-                <p>Lentes Cartier De Gota</p>
-                <p class="precio">$999.00</p>
-                <a href="#" class="agregar-carrito btn-2" data-id="3">Agregar al carrito</a>
-            </div>
-        </div>
+        <?php endif; ?>
     </div>
 </main>
 
