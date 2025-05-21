@@ -642,6 +642,37 @@ img {
     justify-content: center;
 }
 
+/* Agregar estos estilos al final de tu archivo styleCart.css */
+
+/* Estilos para el botón de Stripe */
+.btn-stripe {
+    background-color: #556cd6;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-stripe:hover {
+    background-color: #3a4db4;
+}
+
+/* Efecto sutil de gradiente al pasar el mouse */
+.btn-stripe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.btn-stripe:hover::before {
+    transform: translateX(100%);
+}
+
 /* Botones generales */
 .btn-2 {
     display: inline-block;

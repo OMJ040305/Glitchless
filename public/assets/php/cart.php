@@ -65,7 +65,6 @@ if (isset($_POST['action'])) {
 
                 $_SESSION['carrito'][$productoId] += $cantidad;
             }
-            // Redireccionar para evitar reenvío del formulario
             header('Location: cart.php');
             exit;
             break;
@@ -83,7 +82,6 @@ if (isset($_POST['action'])) {
                     }
                 }
             }
-            // Redireccionar para evitar reenvío del formulario
             header('Location: cart.php');
             exit;
             break;
@@ -95,14 +93,12 @@ if (isset($_POST['action'])) {
                     unset($_SESSION['carrito'][$productoId]);
                 }
             }
-            // Redireccionar para evitar reenvío del formulario
             header('Location: cart.php');
             exit;
             break;
 
         case 'vaciar':
             $_SESSION['carrito'] = array();
-            // Redireccionar para evitar reenvío del formulario
             header('Location: cart.php');
             exit;
             break;
@@ -114,7 +110,7 @@ $productosIds = array_keys($_SESSION['carrito']);
 $productos = obtenerProductosPorIds($conexion, $productosIds);
 $total = calcularTotal($productos, $_SESSION['carrito']);
 
-// Calcular envío (ejemplo simplificado)
+// Calcular envío
 $costoEnvio = 39.00;
 $totalConEnvio = $total + $costoEnvio;
 
@@ -215,7 +211,6 @@ $usuarioLogueado = isset($_SESSION['usuario_id']);
                                             <input type="hidden" name="producto_id" value="<?php echo $id; ?>">
                                             <button type="submit" class="btn-eliminar">Eliminar</button>
                                         </form>
-                                        <button class="btn-guardar">Guardar para después</button>
                                     </div>
                                 </div>
                                 <div class="item-quantity">
@@ -286,47 +281,69 @@ $usuarioLogueado = isset($_SESSION['usuario_id']);
                         <span>Envío</span>
                         <span>$<?php echo number_format($costoEnvio, 2); ?></span>
                     </div>
-                    <?php if ($total > 0): ?>
-                        <div class="summary-coupon">
-                            <div class="coupon-input">
-                                <input type="text" placeholder="Código de descuento">
-                                <button class="btn-apply">Aplicar</button>
-                            </div>
-                        </div>
-                    <?php endif; ?>
                     <div class="summary-total">
                         <span>Total</span>
                         <span class="total-price">$<?php echo number_format($totalConEnvio, 2); ?></span>
                     </div>
-                    <?php if ($total > 0): ?>
-                        <div class="summary-buttons">
-                            <a href="<?php echo $usuarioLogueado ? 'checkout.php' : 'assets/php/login.php?redirect=checkout'; ?>"
-                               class="btn-checkout">
-                                <?php echo $usuarioLogueado ? 'Continuar compra' : 'Inicia sesión para continuar'; ?>
-                            </a>
-                            <a href="../../index.php#productos" class="btn-continue-shopping">Seguir comprando</a>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <?php if ($total > 0): ?>
-                <div class="payment-methods">
-                    <h4>Medios de pago</h4>
-                    <div class="payment-icons">
-                        <img src="../images/payment/visa.svg" alt="Visa">
-                        <img src="../images/payment/mastercard.svg" alt="Mastercard">
-                        <img src="../images/payment/amex.svg" alt="American Express">
-                        <img src="../images/payment/paypal.svg" alt="PayPal">
-                        <img src="../images/payment/oxxo.svg" alt="OXXO">
+                    <!-- El botón siempre estará visible, sin importar el estado del carrito -->
+                    <div class="summary-buttons">
+                        <a href="checkout.php" class="btn-checkout btn-stripe">Pagar ahora</a>
+                        <a href="../../index.php#productos" class="btn-continue-shopping">Seguir comprando</a>
                     </div>
                 </div>
-            <?php endif; ?>
+            </div>
         </div>
     </div>
 </main>
 
-<script src="../js/scriptCart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Manejar botones de cantidad
+        const minusBtns = document.querySelectorAll('.quantity-btn.minus');
+        const plusBtns = document.querySelectorAll('.quantity-btn.plus');
+
+        minusBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+                const input = document.querySelector(`.quantity-input[data-id="${id}"]`);
+                const currentValue = parseInt(input.value);
+                if (currentValue > 1) {
+                    input.value = currentValue - 1;
+                }
+            });
+        });
+
+        plusBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+                const input = document.querySelector(`.quantity-input[data-id="${id}"]`);
+                const max = parseInt(input.getAttribute('max'));
+                const currentValue = parseInt(input.value);
+                if (currentValue < max) {
+                    input.value = currentValue + 1;
+                }
+            });
+        });
+
+        // Mostrar el menú desplegable de usuario al hacer clic en el nombre
+        const userName = document.querySelector('.user-name');
+        const userMenu = document.getElementById('userDropdownMenu');
+
+        if (userName && userMenu) {
+            userName.addEventListener('click', function (e) {
+                e.preventDefault();
+                userMenu.style.display = userMenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Cerrar el menú al hacer clic fuera de él
+            document.addEventListener('click', function (e) {
+                if (!userName.contains(e.target) && !userMenu.contains(e.target)) {
+                    userMenu.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
 
 </body>
 </html>
